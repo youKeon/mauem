@@ -1,10 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import HeaderBar2 from "../component/HeaderBar2";
-import { useRecoilValue } from "recoil";
-import { value1 } from "../recoil/store";
+import { useRecoilState, useRecoilValue, useResetRecoilState } from "recoil";
+import { result, value1 } from "../recoil/store";
+import { useLocation } from "react-router-dom";
 
 const Page8 = () => {
   const name = useRecoilValue(value1);
+  const [gptRes,setGptRes]=useRecoilState(result);
+  const state =useLocation();
+  useEffect(()=>{
+    console.log('gptRes', gptRes)
+    console.log('state',state)
+  },[])
   return (
     <div
       style={{
@@ -39,7 +46,7 @@ const Page8 = () => {
             marginLeft: "20px",
           }}
         >
-          스크립트 내용 넣기
+          {gptRes}
         </div>
       </div>
     </div>

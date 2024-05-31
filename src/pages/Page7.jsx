@@ -1,7 +1,8 @@
 import React, { useEffect } from "react";
 import HeaderBar2 from "../component/HeaderBar2";
-import { useRecoilValue } from "recoil";
+import { useRecoilState, useRecoilValue } from "recoil";
 import {
+  result,
   value1,
   value2,
   value3,
@@ -10,8 +11,12 @@ import {
   value5,
   value6,
 } from "../recoil/store";
+import { callGpt } from "../Gpt.js"; // Import the callGpt function
+import { useNavigate } from "react-router-dom";
 
 const Page7 = () => {
+  const navigate=useNavigate();
+  const [gptRes,setGptRes]=useRecoilState(result);
   const Vvalue1 = useRecoilValue(value1);
   const Vvalue2 = useRecoilValue(value2);
   const Vvalue3 = useRecoilValue(value3);
@@ -28,7 +33,26 @@ const Page7 = () => {
     console.log(Vvalue4);
     console.log(Vvalue5);
     console.log(Vvalue6);
+
+    // Call the GPT function when the component mounts
+    async function fetchGpt() {
+      const response = await callGpt(
+        Vvalue1,
+        Vvalue2,
+        Vvalue3,
+        Vvalue3_add,
+        Vvalue4,
+        Vvalue5,
+        Vvalue6
+      );
+      console.log(response);
+      navigate('/page8',{state:{response}});
+
+      setGptRes(response.message.content);
+    }
+    fetchGpt();
   }, []);
+
   return (
     <div
       style={{
