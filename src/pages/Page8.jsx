@@ -6,7 +6,7 @@ import { useLocation } from "react-router-dom";
 
 const Page8 = () => {
   const name = useRecoilValue(value1);
-  const [gptRes,setGptRes]=useRecoilState(result);
+  const gptRes=useRecoilValue(result);
   const state =useLocation();
   useEffect(()=>{
     console.log('gptRes', gptRes)

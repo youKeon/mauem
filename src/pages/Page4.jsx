@@ -6,7 +6,7 @@ import { value4 } from "../recoil/store";
 import { useRecoilState } from "recoil";
 
 const Page4 = () => {
-  const buttonText = ["1분", "3분", "5분", "7분", "10분"];
+  const buttonText = ["짧게","적당하게","길게"];
   const navigate = useNavigate();
   const [inputValue, setInputValue] = useRecoilState(value4);
   const [clickedButton, setClickedButton] = useState(null);
@@ -34,7 +34,7 @@ const Page4 = () => {
               marginLeft: "10px",
             }}
           >
-            몇 분 정도의 스크립트를 원하시나요?
+            어느 정도의 길이를 원하시나요?
           </p>
 
           {buttonText.map((item, idx) => {

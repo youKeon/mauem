@@ -44,7 +44,7 @@ const Page2 = () => {
               marginLeft: "10px",
             }}
           >
-            스크립트를 받을 사람의 이름은?
+            마음을 받을 사람의 이름은?
           </p>
 
           <Input value={inputValue} onChange={handleInputChange} />

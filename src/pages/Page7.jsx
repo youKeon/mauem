@@ -65,18 +65,7 @@ const Page7 = () => {
     >
       <HeaderBar2 />
       <div>
-        <p
-          style={{
-            fontSize: "20px",
-            fontWeight: "bolder",
-            marginBottom: "12px",
-          }}
-        >
-          스크립트를 생성하고 있어요
-        </p>
-        <p style={{ fontSize: "20px", fontWeight: "bolder" }}>
-          잠시만 기다려주세요!
-        </p>
+      
         <div
           style={{
             width: "360px",
@@ -87,9 +76,9 @@ const Page7 = () => {
             marginLeft: "20px",
           }}
         >
-          축사는 보통 2~5분 정도의 길이를 가지는 것이 일반적이에요. 하지만
-          이러한 길이는 상황에 따라 다를 수 있어요. 행사가 길거나 청중의
-          집중력이 떨어질 경우, 축사를 짧게 유지하는 것이 좋을 수 있어요!
+     스크립트를 생성하고 있어요
+       <br/>
+          잠시만 기다려주세요!
         </div>
       </div>
     </div>
