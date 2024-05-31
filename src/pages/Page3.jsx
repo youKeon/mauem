@@ -1,13 +1,13 @@
 import React from "react";
 import HeaderBar from "../component/HeaderBar";
 import ProgressBar from "../component/ProgressBar";
+import Input from "../component/Input";
 
 const Page3 = () => {
   return (
     <div style={{ height: "100%", display: "flex", flexDirection: "column" }}>
       <HeaderBar />
-      <ProgressBar num={1} />
-
+      <ProgressBar num={3} />
       <div
         style={{
           marginTop: "40px",
@@ -18,7 +18,7 @@ const Page3 = () => {
           padding: "10px",
         }}
       >
-        <div>
+        <div style={{ display: "flex", flexDirection: "column" }}>
           <p
             style={{
               fontSize: "20px",
@@ -29,18 +29,8 @@ const Page3 = () => {
           >
             스크립트의 내용은 무엇인가요?
           </p>
-          <input
-            type="text"
-            style={{
-              backgroundColor: "#F4F4F4",
-              width: "24em",
-              height: "3em",
-              borderRadius: "10px",
-              marginTop: "1em",
-              outline: "none",
-              padding: "10px",
-            }}
-          />
+
+          <Input />
         </div>
         <button
           style={{

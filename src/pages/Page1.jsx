@@ -2,6 +2,7 @@ import React from "react";
 import ProgressBar from "../component/ProgressBar";
 import HeaderBar from "../component/HeaderBar";
 import { useNavigate } from "react-router-dom";
+import Input from "../component/Input";
 
 const Page1 = () => {
   const navigate = useNavigate();
@@ -31,18 +32,7 @@ const Page1 = () => {
           >
             이름을 입력해주세요.
           </p>
-          <input
-            type="text"
-            style={{
-              backgroundColor: "#F4F4F4",
-              width: "24em",
-              height: "3em",
-              borderRadius: "10px",
-              marginTop: "1em",
-              outline: "none",
-              padding: "10px",
-            }}
-          />
+          <Input />
         </div>
         <button
           style={{

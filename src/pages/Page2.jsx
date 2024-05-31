@@ -1,8 +1,11 @@
 import React from "react";
 import HeaderBar from "../component/HeaderBar";
 import ProgressBar from "../component/ProgressBar";
+import { useNavigate } from "react-router-dom";
+import Input from "../component/Input";
 
 const Page2 = () => {
+  const navigate = useNavigate();
   return (
     <div style={{ height: "100%", display: "flex", flexDirection: "column" }}>
       <HeaderBar />
@@ -30,18 +33,7 @@ const Page2 = () => {
             스크립트를 받을 사람의 이름은?
           </p>
 
-          <input
-            type="text"
-            style={{
-              backgroundColor: "#F4F4F4",
-              width: "24em",
-              height: "3em",
-              borderRadius: "10px",
-              marginTop: "1em",
-              outline: "none",
-              padding: "10px",
-            }}
-          />
+          <Input />
         </div>
         <button
           style={{
@@ -51,6 +43,7 @@ const Page2 = () => {
             borderRadius: "10px",
             color: "white",
           }}
+          onClick={() => navigate("/page3")}
         >
           다음
         </button>
