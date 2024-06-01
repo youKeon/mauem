@@ -3,12 +3,12 @@ import HeaderBar from "../component/HeaderBar";
 import ProgressBar from "../component/ProgressBar";
 import { useNavigate } from "react-router-dom";
 import { useRecoilState } from "recoil";
-import { value3 } from "../recoil/store";
+import { messageType } from "../recoil/store";
 
-const Page3 = () => {
+const SelectMessageTypePage = () => {
   const buttonText = ["경사", "조사", "기타"];
   const navigate = useNavigate();
-  const [inputValue, setInputValue] = useRecoilState(value3);
+  const [inputValue, setInputValue] = useRecoilState(messageType);
 
   // 각 버튼의 클릭 상태를 관리할 상태 변수
   const [clickedButton, setClickedButton] = useState(null);
@@ -80,7 +80,7 @@ const Page3 = () => {
             }
             // 현재 선택된 버튼의 인덱스를 찾아서 페이지로 이동
             const index = buttonText.indexOf(clickedButton);
-            navigate(`/page3_${index + 1}`);
+            navigate(`/select1_${index + 1}`);
           }}
         >
           다음
@@ -90,4 +90,4 @@ const Page3 = () => {
   );
 };
 
-export default Page3;
+export default SelectMessageTypePage;

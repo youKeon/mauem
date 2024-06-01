@@ -1,34 +1,32 @@
 import "./App.css";
-import HeaderBar from "./component/HeaderBar";
 import { Routes, Route } from "react-router-dom";
-import Page1 from "./pages/Page1";
-import Page2 from "./pages/Page2";
-
-import Page3 from "./pages/Page3";
-import Page3_1 from "./pages/Page3_1";
-import Page3_2 from "./pages/Page3_2";
-import Page3_3 from "./pages/Page3_3";
-import Page4 from "./pages/Page4";
-import Page5 from "./pages/Page5";
-import Page6 from "./pages/Page6";
-import Page7 from "./pages/Page7";
-import Page8 from "./pages/Page8";
+import MainPage from "./pages/Main.jsx";
+import InputReceiverPage from "./pages/InputReceiverPage.jsx";
+import SelectMessageTypePage from "./pages/SelectMessageTypePage.jsx";
+import SelectCelebratePage from "./pages/SelectCelebratePage";
+import SelectBadPage from "./pages/SelectBadPage";
+import InputEtcPage from "./pages/InputEtcPage";
+import SelectMessageLenPage from "./pages/SelectMessageLenPage.jsx";
+import SelectIntimacyPage from "./pages/SelectIntimacyPage.jsx";
+import SelectSpeechPage from "./pages/SelectSpeechPage.jsx";
+import LoadingPage from "./pages/LoadingPage.jsx";
+import ShowResultPage from "./pages/ShowResultPage.jsx";
 
 function App() {
   return (
     <div style={{ height: "100%", padding: "46px 25px" }}>
       <Routes>
-        <Route path="/page1" element={<Page1 />}></Route>
-        <Route path="/page2" element={<Page2 />}></Route>
-        <Route path="/page3" element={<Page3 />}></Route>
-        <Route path="/page3_1" element={<Page3_1 />}></Route>
-        <Route path="/page3_2" element={<Page3_2 />}></Route>
-        <Route path="/page3_3" element={<Page3_3 />}></Route>
-        <Route path="/page4" element={<Page4 />}></Route>
-        <Route path="/page5" element={<Page5 />}></Route>
-        <Route path="/page6" element={<Page6 />}></Route>
-        <Route path="/page7" element={<Page7 />}></Route>
-        <Route path="/page8" element={<Page8 />}></Route>
+        <Route path="/" element={<MainPage />} />
+        <Route path="/inputreceiver" element={<InputReceiverPage />} />
+        <Route path="/select/message" element={<SelectMessageTypePage />} />
+        <Route path="/select1_1" element={<SelectCelebratePage />} />
+        <Route path="/select1_2" element={<SelectBadPage />} />
+        <Route path="/select1_3" element={<InputEtcPage />} />
+        <Route path="/select/messageLen" element={<SelectMessageLenPage />} />
+        <Route path="/select/intimacy" element={<SelectIntimacyPage />} />
+        <Route path="/select/speech" element={<SelectSpeechPage />} />
+        <Route path="/loading" element={<LoadingPage />} />
+        <Route path="/show/result" element={<ShowResultPage />} />
       </Routes>
     </div>
   );

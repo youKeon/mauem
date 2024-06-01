@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import HeaderBar from "../component/HeaderBar";
 import ProgressBar from "../component/ProgressBar";
 import { useNavigate } from "react-router-dom";
-import { value6 } from "../recoil/store";
+import { speech } from "../recoil/store";
 import { useRecoilState } from "recoil";
 
-const Page6 = () => {
+const SelectSpeechPage = () => {
   const navigate = useNavigate();
   const text = [
     "다정한",
@@ -18,7 +18,7 @@ const Page6 = () => {
     "강압적",
     "격식적",
   ];
-  const [inputValue, setInputValue] = useRecoilState(value6);
+  const [inputValue, setInputValue] = useRecoilState(speech);
   const [clickedButton, setClickedButton] = useState(null);
 
   return (
@@ -88,7 +88,7 @@ const Page6 = () => {
             border: "none",
           }}
           onClick={() => {
-            navigate("/page7");
+            navigate("/loading");
           }}
         >
           다음
@@ -98,4 +98,4 @@ const Page6 = () => {
   );
 };
 
-export default Page6;
+export default SelectSpeechPage;

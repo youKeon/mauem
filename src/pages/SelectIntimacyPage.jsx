@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import HeaderBar from "../component/HeaderBar";
 import ProgressBar from "../component/ProgressBar";
 import { useNavigate } from "react-router-dom";
-import { value5 } from "../recoil/store";
+import { intimacy } from "../recoil/store";
 import { useRecoilState } from "recoil";
 
-const Page5 = () => {
+const SelectIntimacyPage = () => {
   const navigate = useNavigate();
   const text = ["아주 많이", "많이", "보통", "조금", "아주 조금", "안친함"];
-  const [inputValue, setInputValue] = useRecoilState(value5);
+  const [inputValue, setInputValue] = useRecoilState(intimacy);
   const [clickedButton, setClickedButton] = useState(null);
 
   return (
@@ -78,7 +78,7 @@ const Page5 = () => {
             border: "none",
           }}
           onClick={() => {
-            navigate("/page6");
+            navigate("/select/speech");
           }}
         >
           다음
@@ -88,4 +88,4 @@ const Page5 = () => {
   );
 };
 
-export default Page5;
+export default SelectIntimacyPage;

@@ -2,25 +2,26 @@ import React, { useState } from "react";
 import HeaderBar from "../component/HeaderBar";
 import ProgressBar from "../component/ProgressBar";
 import { useNavigate } from "react-router-dom";
+import { messageType_add } from "../recoil/store";
 import { useRecoilState } from "recoil";
-import { value3_add } from "../recoil/store";
 
-const Page3_1 = () => {
-  const [inputValue, setInputValue] = useRecoilState(value3_add);
+const SelectBadPage = () => {
+  const [inputValue, setInputValue] = useRecoilState(messageType_add);
+
   const navigate = useNavigate();
   const text = [
-    "결혼",
-    "생일",
-    "승진",
-    "집들이",
-    "졸업",
-    "성인",
-    "상 수상",
-    "공연",
-    "기념일",
-    "합격",
-    "출산",
-    "취업",
+    "장례",
+    "추모",
+    "제사",
+    "반려동물",
+    "이별",
+    "가족",
+    "이혼",
+    "실직",
+    "건강악화",
+    "부상",
+    "자연재해",
+    "유산",
   ];
   const [clickedButton, setClickedButton] = useState(null);
 
@@ -47,7 +48,7 @@ const Page3_1 = () => {
               marginLeft: "10px",
             }}
           >
-            어떤 경사인가요?
+            어떤 조사인가요?
           </p>
           <div
             style={{
@@ -91,7 +92,7 @@ const Page3_1 = () => {
             border: "none",
           }}
           onClick={() => {
-            navigate("/page4");
+            navigate("/select/messageLen");
           }}
         >
           다음
@@ -101,4 +102,4 @@ const Page3_1 = () => {
   );
 };
 
-export default Page3_1;
+export default SelectBadPage;

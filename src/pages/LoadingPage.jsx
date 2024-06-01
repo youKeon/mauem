@@ -1,54 +1,45 @@
 import React, { useEffect } from "react";
-import HeaderBar2 from "../component/HeaderBar2";
+import HeaderBar2 from "../component/HeaderBar2.jsx";
 import { useRecoilState, useRecoilValue } from "recoil";
 import {
   result,
-  value1,
-  value2,
-  value3,
-  value3_add,
-  value4,
-  value5,
-  value6,
-} from "../recoil/store";
+  myName,
+  receiver,
+  messageType,
+  messageType_add,
+  messageLength,
+  intimacy,
+  speech,
+} from "../recoil/store.js";
 import { callGpt } from "../Gpt.js"; // Import the callGpt function
 import { useNavigate } from "react-router-dom";
 
-const Page7 = () => {
-  const navigate=useNavigate();
-  const [gptRes,setGptRes]=useRecoilState(result);
-  const Vvalue1 = useRecoilValue(value1);
-  const Vvalue2 = useRecoilValue(value2);
-  const Vvalue3 = useRecoilValue(value3);
-  const Vvalue3_add = useRecoilValue(value3_add);
-  const Vvalue4 = useRecoilValue(value4);
-  const Vvalue5 = useRecoilValue(value5);
-  const Vvalue6 = useRecoilValue(value6);
+const LoadingPage = () => {
+  const navigate = useNavigate();
+  const [gptRes, setGptRes] = useRecoilState(result);
+  const name = useRecoilValue(myName);
+  const receiverName = useRecoilValue(receiver);
+  const typeOfMessage = useRecoilValue(messageType);
+  const typeOfMessage_add = useRecoilValue(messageType_add);
+  const messageLen = useRecoilValue(messageLength);
+  const frinedly = useRecoilValue(intimacy);
+  const talk = useRecoilValue(speech);
 
   useEffect(() => {
-    console.log(Vvalue1);
-    console.log(Vvalue2);
-    console.log(Vvalue3);
-    console.log(Vvalue3_add);
-    console.log(Vvalue4);
-    console.log(Vvalue5);
-    console.log(Vvalue6);
-
     // Call the GPT function when the component mounts
     async function fetchGpt() {
       const response = await callGpt(
-        Vvalue1,
-        Vvalue2,
-        Vvalue3,
-        Vvalue3_add,
-        Vvalue4,
-        Vvalue5,
-        Vvalue6
+        name,
+        receiverName,
+        typeOfMessage,
+        typeOfMessage_add,
+        messageLen,
+        frinedly,
+        talk
       );
       console.log(response);
-      navigate('/page8',{state:{response}});
-
       setGptRes(response.message.content);
+      navigate("/show/result");
     }
     fetchGpt();
   }, []);
@@ -65,7 +56,6 @@ const Page7 = () => {
     >
       <HeaderBar2 />
       <div>
-      
         <div
           style={{
             width: "360px",
@@ -76,8 +66,8 @@ const Page7 = () => {
             marginLeft: "20px",
           }}
         >
-     스크립트를 생성하고 있어요
-       <br/>
+          스크립트를 생성하고 있어요
+          <br />
           잠시만 기다려주세요!
         </div>
       </div>
@@ -85,4 +75,4 @@ const Page7 = () => {
   );
 };
 
-export default Page7;
+export default LoadingPage;

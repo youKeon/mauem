@@ -1,30 +1,29 @@
 import React, { useState } from "react";
 import HeaderBar from "../component/HeaderBar";
 import ProgressBar from "../component/ProgressBar";
-import { useNavigate } from "react-router-dom";
 import Input from "../component/Input";
+import { useNavigate } from "react-router-dom";
+import { messageType_add } from "../recoil/store";
 import { useRecoilState } from "recoil";
-import { value2 } from "../recoil/store";
 
-const Page2 = () => {
+const InputEtcPage = () => {
+  const buttonText = ["경사", "조사", "기타"];
   const navigate = useNavigate();
-  const [name, setName] = useRecoilState(value2);
+  const [name, setName] = useRecoilState(messageType_add);
   const [inputValue, setInputValue] = useState("");
-
   const handleInputChange = (e) => {
     setInputValue(e.target.value);
   };
 
   const handleNextButtonClick = () => {
     setName(inputValue);
-    navigate("/page3");
+    navigate("/select/messageLen");
     console.log(inputValue);
   };
   return (
     <div style={{ height: "100%", display: "flex", flexDirection: "column" }}>
       <HeaderBar />
-      <ProgressBar num={2} />
-
+      <ProgressBar num={3} />
       <div
         style={{
           marginTop: "40px",
@@ -35,7 +34,7 @@ const Page2 = () => {
           padding: "10px",
         }}
       >
-        <div>
+        <div style={{ display: "flex", flexDirection: "column" }}>
           <p
             style={{
               fontSize: "20px",
@@ -44,10 +43,14 @@ const Page2 = () => {
               marginLeft: "10px",
             }}
           >
-            마음을 받을 사람의 이름은?
+            어떤 스크립트를 생성하고 싶나요?
           </p>
 
-          <Input value={inputValue} onChange={handleInputChange} />
+          <Input
+            text={"ex 메일"}
+            value={inputValue}
+            onChange={handleInputChange}
+          />
         </div>
         <button
           style={{
@@ -67,4 +70,4 @@ const Page2 = () => {
   );
 };
 
-export default Page2;
+export default InputEtcPage;

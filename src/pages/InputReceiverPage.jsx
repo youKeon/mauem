@@ -1,14 +1,14 @@
 import React, { useState } from "react";
-import ProgressBar from "../component/ProgressBar";
 import HeaderBar from "../component/HeaderBar";
+import ProgressBar from "../component/ProgressBar";
 import { useNavigate } from "react-router-dom";
 import Input from "../component/Input";
 import { useRecoilState } from "recoil";
-import { value1 } from "../recoil/store";
+import { receiver } from "../recoil/store";
 
-const Page1 = () => {
+const InputReceiverPage = () => {
   const navigate = useNavigate();
-  const [name, setName] = useRecoilState(value1);
+  const [name, setName] = useRecoilState(receiver);
   const [inputValue, setInputValue] = useState("");
 
   const handleInputChange = (e) => {
@@ -17,14 +17,14 @@ const Page1 = () => {
 
   const handleNextButtonClick = () => {
     setName(inputValue);
-    navigate("/page2");
+    navigate("/select/message");
     console.log(inputValue);
   };
-
   return (
     <div style={{ height: "100%", display: "flex", flexDirection: "column" }}>
       <HeaderBar />
-      <ProgressBar num={1} />
+      <ProgressBar num={2} />
+
       <div
         style={{
           marginTop: "40px",
@@ -44,13 +44,10 @@ const Page1 = () => {
               marginLeft: "10px",
             }}
           >
-            당신의 이름을 알려주세요.
+            마음을 받을 사람의 이름은?
           </p>
-          <Input
-            placeholder="이름을 입력하세요"
-            value={inputValue}
-            onChange={handleInputChange}
-          />
+
+          <Input value={inputValue} onChange={handleInputChange} />
         </div>
         <button
           style={{
@@ -70,4 +67,4 @@ const Page1 = () => {
   );
 };
 
-export default Page1;
+export default InputReceiverPage;
